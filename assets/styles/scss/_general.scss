@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500;700&family=Overpass&display=swap');
+$bgWhite: rgba(242,242,242,0.8);
+$colorWhite: #F2F2F2;
+$colorBlack: #202020;
+$colorOrange: rgb(255,184,48);
+:root{
+    --color-black: #202020;
+    --color-white: #F2F2F2;
+    --color-secondary: #FFEDDA;
+    --color-orange: #FF8C32;
+    --color-blue: #3DB2FF;
+    --color-gray: #c2c2c2;
+}
+
+body{
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif
+}
+.color-blue{
+    color: var(--color-blue)
+}
+.color-white{
+    color: var(--color-white)
+}
+.color-black{
+    color: var(--color-black)
+}
+.title-section{
+    font-size: 40px;
+    font-weight: 700;
+    color: $colorWhite;
+    text-align: center;
+    padding: 30px 0px
+}
+@media(max-width: 990px){
+    .title-section{
+        font-size: 33px;
+        padding: 15px 0px;
+    }
+}
+@media(max-width: 640px){
+    .title-section{
+        font-size: 30px;
+        padding: 10px 0px;
+    }
+}

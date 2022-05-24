@@ -1,0 +1,129 @@
+#send{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/img/fondo.jpg');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: calc(100vh - 100px);
+    padding: 50px 0px;
+    @media(max-width:990px){ 
+        &{
+            width: calc(100% - 40px);
+            padding: 50px 20px
+        }    
+    }
+    @media(max-height: 640px){
+        &{
+            height: 100%;
+            padding: 50px 20px
+        }   
+    }
+    .content-send{
+        width: 100%;
+        height: 600px;
+        max-width: 990px;
+        background: white;
+        border-radius: 20px;
+        .headers-send{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            height: 80px;
+            .header-send{
+                width: calc(50% - 40px);
+                margin: 0 auto;
+                font-size: 18px;
+                text-align: center;
+                padding-bottom: 10px;
+                &:hover{
+                    color: var(--color-blue);
+                    border-bottom: 1px solid var(--color-blue);
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+            }
+            .header-active{
+                color: var(--color-blue);
+                border-bottom: 1px solid var(--color-blue);
+                font-weight: 700;
+            }
+        }
+        .section-information{
+            width: calc(100% - 60px);
+            height: calc(100% - 160px);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 0px 30px;
+            .content-information{
+                width: 100%;
+                height: 100%;
+                overflow-y: auto;
+                display: none;
+                .name-patient{
+                    font-size: 20px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+                .section-questions{
+                    width: calc(100% - 30px);
+                    padding: 0px 15px;
+                    margin-top: 20px;
+                    .text-question{
+                        margin-top: 10px
+                    }
+                    .text-response{
+                        margin-bottom: 10px
+                    }
+                }
+                .title-diagnostic{
+                    font-size: 20px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    text-align: center;
+                }
+                .text-diagnostic{
+                    width: calc(100% - 30px);
+                    padding: 20px 15px;
+                    text-align: justify;
+                }
+            }
+            .information-active{
+                display: block;
+            }
+        }
+        .footer-send{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            height: 80px;
+            .btn-back{
+                width: 150px;
+                padding: 8px 5px;
+                color: var(--color-blue);
+                letter-spacing: 5px;
+                font-size: 18px;
+                font-weight: 700;
+                border-radius: 50px;
+                text-transform: uppercase;
+                background-color: transparent;
+                border: 3px solid var(--color-blue);
+                text-align: center;
+                text-decoration: none;
+                &:hover{
+                    background-color: var(--color-blue);
+                    cursor: pointer;
+                    color: var(--color-white) !important
+                }
+            }
+        }
+    }
+}

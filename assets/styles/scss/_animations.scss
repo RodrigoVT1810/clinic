@@ -1,0 +1,207 @@
+@-webkit-keyframes opacity-img {
+    from {
+        opacity:0
+    }
+    to
+    {
+        opacity:1
+    }
+}
+@-webkit-keyframes circle-top{
+    from {
+        opacity: 0;
+        margin-top: -300px
+    }
+    to {
+        opacity: 1;
+        margin-top: -55px
+    }
+}
+@-webkit-keyframes circle-bottom{
+    from {
+        opacity: 0;
+        margin-left: 0px
+    }
+    to {
+        opacity: 1;
+        margin-left: -290px
+    }
+}
+@-webkit-keyframes none-welcome {
+    from {
+        opacity:1;
+        height: 100vh;
+        display: none;
+        padding: 60px
+    }
+    to
+    {
+        opacity:0;
+        display:none;
+        height: 0px;
+        padding: 0px
+    }
+}
+@-webkit-keyframes show-home {
+    from {
+        opacity:0;
+        height: 0px
+    }
+    to
+    {
+        opacity:1;
+        display: block;
+        height: 100vh
+    }
+}
+@media(max-width: 991px) {
+    @-webkit-keyframes circle-top{
+        from {
+            margin-top: -60px
+        }
+        to {
+            margin-top: 10px
+        }
+    }
+    @-webkit-keyframes circle-bottom{
+        from {
+            margin-top: 250px;
+            margin-left: -100px
+        }
+        to {
+            margin-top: 160px;
+            margin-left: -180px
+        }
+    }
+}
+
+/*
+    ANIMACIONES TOMADAS DE
+    https://codepen.io/vikramsansare/pen/eYJPogJ?editors=1100
+*/
+@-webkit-keyframes laps-start {
+    0% {
+        top: 0;
+        left: 0;
+    }
+    25% {
+        top: 50%;
+        left: 0;
+    }
+    50% {
+        top: 50%;
+        left: 50%;
+    }
+    75% {
+        top: 0;
+        left: 50%;
+    }
+    100% {
+        top: 0;
+        left: 0;
+    }
+}
+@keyframes laps-start {
+    0% {
+        top: 0;
+        left: 0;
+    }
+    25% {
+        top: 50%;
+        left: 0;
+    }
+    50% {
+        top: 50%;
+        left: 50%;
+    }
+    75% {
+        top: 0;
+        left: 50%;
+    }
+    100% {
+        top: 0;
+        left: 0;
+    }
+}
+@-webkit-keyframes laps-end {
+    0% {
+        right: 0;
+        bottom: 0;
+    }
+    25% {
+        right: 0;
+        bottom: 50%;
+    }
+    50% {
+        right: 50%;
+        bottom: 50%;
+    }
+    75% {
+        right: 50%;
+        bottom: 0;
+    }
+    100% {
+        right: 0;
+        bottom: 0;
+    }
+}
+@keyframes laps-end {
+    0% {
+        right: 0;
+        bottom: 0;
+    }
+    25% {
+        right: 0;
+        bottom: 50%;
+    }
+    50% {
+        right: 50%;
+        bottom: 50%;
+    }
+    75% {
+        right: 50%;
+        bottom: 0;
+    }
+    100% {
+        right: 0;
+        bottom: 0;
+    }
+}
+
+/* ESTILOS PARA HACER UN SLIDER */
+@-webkit-keyframes page-back {
+    from {
+        margin-left: -100%
+    }
+    to
+    {
+        margin-left: 0px
+    }
+}
+@-webkit-keyframes page-next {
+    from {
+        margin-left: 100%
+    }
+    to
+    {
+        margin-left: 0px
+    }
+}
+@-webkit-keyframes change-back {
+    from {
+        margin-left: 0px
+    }
+    to
+    {
+        margin-left: 100%
+    }
+}
+@-webkit-keyframes change-next {
+    from {
+        margin-left: 0px
+    }
+    to
+    {
+        margin-left: -100%
+    }
+}
