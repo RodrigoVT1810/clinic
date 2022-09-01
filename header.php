@@ -1,3 +1,9 @@
+<?php
+/**
+ * El header para la inyección de todas las librerías y estilos a implementarse,
+ * de igual manera son las etiquetas de apertura del contenido de las páginas.
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

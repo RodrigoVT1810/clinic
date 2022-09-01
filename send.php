@@ -1,4 +1,13 @@
 <?php
+    /**
+     * La página de send o envío, es aquella que recibe todo el formulario dinámico del test y guarda toda
+     * la información en la base de datos.
+     * 
+     * También muestra la pantalla de que el test ha sido compleado con éxito con un mensaje.
+     * 
+     * Envía la información de sus resultados, si es un paciente registrado para que el pueda ver sus resultados,
+     * y pueda continuar con su seguimiento.
+     */
     require_once('assets/dbconnector.php');
     $con=new dbconn();
     $con->dbconnector();
@@ -7,6 +16,8 @@
     $number = 1;
     $valor = 0;
     $response = "";
+    $formulario = "";
+
     while($row = $questions->fetch_assoc()) {
         $pos = strpos($_POST['id_questions'], '-'.$row['id'].'-');
         if($pos !== false){
@@ -77,18 +88,23 @@
                     while($row = $questions->fetch_assoc()) {
                         $pos = strpos($_POST['id_questions'], '-'.$row['id'].'-');
                         if($pos !== false){
+                            $formulario = $formulario.'<p>'.$number.'.- '.$row['pregunta'].'</p>';
                             echo '<div class="text-question"><span>'.$number.'.- </span>'.$row['pregunta'].'</div>';
                             switch($_POST['pregunta'.$number]){
                                 case 1:{
+                                    $formulario = $formulario.'<p>Raramente o ninguna vez (menos de un día)</p><br>';
                                     echo '<div class="text-response">Raramente o ninguna vez (menos de un día)</div>';
                                 }break;
                                 case 2:{
-                                    echo '<div class="text-response">Alguna o pocas veces</div>';
+                                    $formulario = $formulario.'<p>Alguna o pocas veces(1-2 días)</p><br>';
+                                    echo '<div class="text-response">Alguna o pocas veces(1-2 días)</div>';
                                 }break;
                                 case 3:{
+                                    $formulario = $formulario.'<p>Ocasionalmente o una buena parte del tiempo (3-4 días)</p><br>';
                                     echo '<div class="text-response">Ocasionalmente o una buena parte del tiempo (3-4 días)</div>';
                                 }break;
                                 case 4:{
+                                    $formulario = $formulario.'<p>La mayor parte o todo el tiempo (5-7 días)</p><br>';
                                     echo '<div class="text-response">La mayor parte o todo el tiempo (5-7 días)</div>';
                                 }break;
                             }
@@ -116,4 +132,7 @@
         });
     });
 </script>
-<?php include('footer.php'); ?>
+<?php 
+    include('correo.php');
+    include('footer.php');
+?>

@@ -1,3 +1,11 @@
+<?php
+/**
+ * Página de Login, donde el usuario podrá registrarse como paciente para que se pueda otorgar los permisos para poder guardar su diágnostico
+ * asi como también se le pueda dar un seguimiento.
+ * 
+ * De igual manera si el usuario no desea registrarse puede realizar el test como invitado, cabe mencionar que no se le podrá dar un seguimiento.
+ */
+?>
 <?php include('header.php'); ?>
 <div id="login">
     <div class="content-login">

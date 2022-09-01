@@ -1,3 +1,8 @@
+<?php
+/**
+ * Es la pantalla de bienvenida donde podrás acceder al sitio con la información de clinic detect
+ */
+?>
 <div id="welcome">
     <div class="content-welcome">
         <div class="section-image">

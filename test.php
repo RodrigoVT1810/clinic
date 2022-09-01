@@ -1,16 +1,24 @@
 <?php
+    /**
+     * La página de test es el formulario que consta de 20 preguntas para detectar,
+     * el nivel de depresión que una persona tiene.
+     */
+
+    //Conexión a la BD
     require_once('assets/dbconnector.php');
     $con=new dbconn();
     $con->dbconnector();
 
     $id = 0;
     if($_POST){
-        $con->query("INSERT INTO pacientes(nombre,ape_paterno,ape_materno,fecha_nacimiento,genero,email) VALUES('".$_POST['nombre']."','".$_POST['ape_paterno']."','".$_POST['ape_materno']."','".$_POST['fecha_nacimiento']."','".$_POST['genero']."','".$_POST['email']."')");
+        //Si el usuario se registro guardamos la información
+        $con->query("INSERT INTO pacientes(nombre,ape_paterno,ape_materno,fecha_nacimiento,genero,email,id_estatus,creator_user_id) VALUES('".$_POST['nombre']."','".$_POST['ape_paterno']."','".$_POST['ape_materno']."','".$_POST['fecha_nacimiento']."','".$_POST['genero']."','".$_POST['email']."',1,1)");
         $sql = $con->query("SELECT * FROM pacientes ORDER BY id DESC LIMIT 1");
         $patient = $con->fetcharray($sql);
         $id = $patient['id'];
     }
 
+    //Obtenemos todas las preguntas que se realizarán en el cuestionario
     $questions = $con->query("SELECT * FROM preguntas WHERE id_estatus = 1");
     $max_questions = $questions->num_rows;
 ?>
@@ -25,6 +33,10 @@
                 <div class="section-questions-reponse">
                     <div class="section-questions">
                         <?php 
+                            /**
+                             * Las preguntas obtenidas en la parte superior se comienzan a pintar dinamicamente con
+                             * su respectivo campo de respuesta.
+                             */
                             $number = 1;
                             while($row = $questions->fetch_assoc()) {
                                 if($number == 1){
@@ -41,7 +53,7 @@
                         <select name="response" id="response" value="0">
                             <option value="0">-- Seleccione una opción --</option>
                             <option value="1">Raramente o ninguna vez (menos de un día)</option>
-                            <option value="2">Alguna o pocas veces</option>
+                            <option value="2">Alguna o pocas veces (1-2 días)</option>
                             <option value="3">Ocasionalmente o una buena parte del tiempo (3-4 días)</option>
                             <option value="4">La mayor parte o todo el tiempo (5-7 días)</option>
                         </select>
@@ -56,6 +68,12 @@
         </div>
     </form>
 </div>
+<?php
+/**
+ * Formulario que se comenzara a llenar dinamicamente,
+ * para ser enviado al método de guardar toda la información.
+ */
+?>
 <form id="form_send" action="send.php" method="POST">
     <input type="hidden" name="id_patient" id="id_patient" value="<?= $id ?>">
     <input type="hidden" name="id_questions" id="id_questions" value="">
@@ -66,6 +84,10 @@
     var id_questions = "";
     $(document).ready(function(){
         $('.btn-next').click(function() {
+            /**
+             * Acción que se ejecuta a dal clic en el botón de siguiente.
+             * Función que guarda la respuesta en el formulario y avanza a la siguiente pregunta.
+             */
             var response = $('#response').val();
             if(response != 0){
                 var existe = $('#pregunta'+question).val();
@@ -100,9 +122,12 @@
             } else {
                 alert('Necesitas seleccionar una opción.');
             }
-            //console.log(responses);
         });
         $('.btn-back').click(() => {
+            /**
+             * Acción que se ejecuta a dal clic en el botón de anterior.
+             * Función que recupera la información y muestra la pregunta anterior con su respuesta ya seleccionada.
+             */
             var response = $('#response').val();
             if(response != 0){
                 $('#pregunta'+question).val(response);
@@ -119,6 +144,10 @@
             }
         });
         $('.btn-send').click(() => {
+            /**
+             * Acción que se ejecuta a dal clic en el botón de enviar que se encuentra al final del test,
+             * la cual envía la información del formulario creado dinamicamente al método de guardar toda la información.
+             */
             var response = $('#response').val();
             if(response != 0){
                 var id = $('.question'+question).data('id');

@@ -1,3 +1,15 @@
+<?php
+/**
+ * Es la vista del home al momento de acceder por el welcome
+ * 
+ * Dentro de esta pantalla esta el contenido de toda la información importante acerca de la página
+ * ¿Qué encontrarás aquí?
+ * Síntomas
+ * Diagnosticos
+ * 
+ * Podremos ver los redireccionamientos para realizar la prueba de TEST
+ */
+?>
 <div id="home" class="none-home">
     <div class="header">
         <div class="top-header">
@@ -44,7 +56,7 @@
                             Si has experimentado por lo menos cinco de los siguientes síntomas, la mayor parte del tiempo, al menos durante las últimas dos semanas es probable que tengas algún grado de depresión.
                         </div>
                         <div class="information-formation">
-                        <div class="icon-formation"><i class="fas fa-frown"></i></div>
+                            <div class="icon-formation"><i class="fas fa-frown"></i></div>
                             <div class="title-formation">TRISTEZA</div>
                             <div class="text-formation">Sentir tristeza, desgano o sentimiento de vacío.</div>
                         </div>
